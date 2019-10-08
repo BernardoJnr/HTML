@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pagina do curso</title>
+    <link rel="stylesheet" href="estilo.css">
+
+</head>
+
+<body>
+    <header>
+        <h1 class="CabecalhoPrincipal"> Exercicios práticos de html </h1>
+    </header>
+    <nav>
+        <a href="exemplosHTML/cabecalho.html"> Exemplos Cabecalho </a><br />
+        <a href="exemplosHTML/tagtexto.html"> Tags de texto</a><br />
+        <a href="exemplosHTML/lista.html"> Listas</a><br />
+        <a href="exemplosHTML/link.html"> Link </a><br />
+        <a href="index.html">voltar 1</a><br />
+        <a href="/index.html"> Voltar 2</a><br />
+        <a href="exemplosHTML/tabela.html"> Tabela </a><br />
+        <a href="exemplosHTML/formulario/formulario.html"> Formulario </a><br />
+
+    </nav>
+
+    <section id="content">
+
+    </section>
+
+    <footer>
+
+
+    </footer>
+
+    <script>
+
+        document.querySelectorAll('a').forEach(link => {
+            console.log(link);
+
+            const conteudo = document.getElementById('content')
+
+            link.onclick = function (e) {
+                console.log("action")
+                e.preventDefault()
+                fetch(link.href)
+                    .then(resp => resp.text())
+                    .then(html => conteudo.innerHTML = html)
+
+            }
+        })
+      
+
+    </script>
+
+</body>
+
+</html>
